@@ -1,0 +1,14 @@
+*.lock
+*.log
+\.build
+\.cache
+\.editorconfig
+.env.local
+\.git
+\.gitignore
+\.ignore
+\.prettierignore
+\.reports
+node_modules
+package.json
+yarn.lock

@@ -1,12 +1,11 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
 import { LoggerModule } from 'nestjs-pino';
-import { DatabaseModule } from './database/database.module';
-import { DevicesModule } from './devices/devices.module';
+
+import { DatabaseProvider } from './database.providers';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
 	imports: [
-		ConfigModule.forRoot(),
 		LoggerModule.forRootAsync({
 			imports: [ConfigModule],
 			useFactory: async (configService: ConfigService) => ({
@@ -26,8 +25,8 @@ import { DevicesModule } from './devices/devices.module';
 			}),
 			inject: [ConfigService],
 		}),
-		DatabaseModule,
-		DevicesModule,
 	],
+	providers: [...DatabaseProvider],
+	exports: [...DatabaseProvider],
 })
-export class AppModule {}
+export class DatabaseModule {}

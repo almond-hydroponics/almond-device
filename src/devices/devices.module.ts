@@ -1,0 +1,17 @@
+import { Module } from '@nestjs/common';
+import { LoggerModule } from 'nestjs-pino';
+import { SequelizeModule } from '@nestjs/sequelize';
+
+import { Device } from './device.model';
+import { DevicesController } from './devices.controller';
+import { DevicesService } from './devices.service';
+
+@Module({
+	imports: [LoggerModule],
+	providers: [
+		{ provide: 'DevicesService', useClass: DevicesService },
+		{ provide: 'DevicesRepository', useValue: Device },
+	],
+	controllers: [DevicesController],
+})
+export class DevicesModule {}
