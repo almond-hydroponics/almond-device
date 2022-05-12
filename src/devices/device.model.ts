@@ -1,5 +1,6 @@
+// @formatter:off
 import * as withPagination from 'sequelize-cursor-pagination';
-import { Column, Model, Table, DataType, Index } from 'sequelize-typescript';
+import { Column, Model, Table, DataType } from 'sequelize-typescript';
 
 @Table({
 	modelName: 'device',
@@ -19,6 +20,8 @@ export class Device extends Model<Device> {
 
 	@Column({
 		type: DataType.STRING,
+		unique: true,
+		allowNull: false,
 		comment: 'The device name.',
 	})
 	name: string;
@@ -28,14 +31,21 @@ export class Device extends Model<Device> {
 		comment: 'The device verification status.',
 		defaultValue: false,
 	})
-	isVerified: boolean;
+	verified: boolean;
 
 	@Column({
 		type: DataType.BOOLEAN,
 		comment: 'The device active status.',
 		defaultValue: false,
 	})
-	isActive: boolean;
+	active: boolean;
+
+	@Column({
+		type: DataType.STRING,
+		allowNull: true,
+		comment: 'Ref: User. The device owner.',
+	})
+	user: string;
 }
 
 withPagination({
