@@ -1,4 +1,5 @@
-import { WhereOptions, FindAttributeOptions } from 'sequelize/types';
+import { FindAttributeOptions, WhereOptions } from 'sequelize/types';
+
 import { IEdge, IPageInfo } from './cursor-pagination.interface';
 
 export interface IFindAndPaginateOptions {

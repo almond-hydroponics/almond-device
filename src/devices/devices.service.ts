@@ -1,17 +1,16 @@
+import { Inject, Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/sequelize';
 import { isEmpty } from 'lodash';
 import { PinoLogger } from 'nestjs-pino';
-import { Inject, Injectable } from '@nestjs/common';
 import { FindOptions } from 'sequelize/types';
-import { InjectModel } from '@nestjs/sequelize';
 
-import { IDevicesService } from './devices.interface';
 import {
 	IFindAndPaginateOptions,
 	IFindAndPaginateResult,
 } from '../commons/find-and-paginate.interface';
-
-import { Device } from './device.model';
 import { DeviceDto } from './device.dto';
+import { Device } from './device.model';
+import { IDevicesService } from './devices.interface';
 
 @Injectable()
 export class DevicesService implements IDevicesService {

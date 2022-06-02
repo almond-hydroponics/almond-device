@@ -1,9 +1,10 @@
 import { Provider } from '@nestjs/common';
-import { Sequelize } from 'sequelize-typescript';
 import { PinoLogger } from 'nestjs-pino';
-import { DEVELOPMENT, PRODUCTION, TEST } from './database.constants';
-import { databaseConfig } from './database.config';
+import { Sequelize } from 'sequelize-typescript';
+
 import { Device } from '../devices/device.model';
+import { databaseConfig } from './database.config';
+import { DEVELOPMENT, PRODUCTION, TEST } from './database.constants';
 
 export const DatabaseProvider: Provider[] = [
 	{

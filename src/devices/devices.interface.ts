@@ -1,11 +1,11 @@
 import { FindOptions } from 'sequelize/types';
 
-import { Device } from './device.model';
-import { DeviceDto } from './device.dto';
 import {
 	IFindAndPaginateOptions,
 	IFindAndPaginateResult,
 } from '../commons/find-and-paginate.interface';
+import { DeviceDto } from './device.dto';
+import { Device } from './device.model';
 
 export interface IDevicesService {
 	find(

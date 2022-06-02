@@ -1,16 +1,14 @@
-import Aigle from 'aigle';
-
-import { PinoLogger } from 'nestjs-pino';
 import { Controller, Inject } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
+import Aigle from 'aigle';
 import { isEmpty, isNil } from 'lodash';
+import { PinoLogger } from 'nestjs-pino';
 
 import { ICount, IQuery } from '../commons/commons.interface';
-import { IDevicesService } from './devices.interface';
 import { IFindPayload } from '../commons/cursor-pagination.interface';
-
-import { Device } from './device.model';
 import { DeviceDto } from './device.dto';
+import { Device } from './device.model';
+import { IDevicesService } from './devices.interface';
 
 const { map } = Aigle;
 

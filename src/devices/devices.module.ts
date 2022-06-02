@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { LoggerModule } from 'nestjs-pino';
 import { SequelizeModule } from '@nestjs/sequelize';
+import { LoggerModule } from 'nestjs-pino';
 
 import { Device } from './device.model';
 import { DevicesController } from './devices.controller';

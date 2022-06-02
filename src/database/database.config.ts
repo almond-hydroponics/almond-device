@@ -1,8 +1,8 @@
 import * as dotenv from 'dotenv';
 
-dotenv.config();
-
 import { IDatabaseConfig } from './database.interface';
+
+dotenv.config();
 
 export const databaseConfig: IDatabaseConfig = {
 	development: {

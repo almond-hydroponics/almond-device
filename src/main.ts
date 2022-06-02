@@ -1,10 +1,12 @@
 import { join } from 'path';
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+
 import { INestMicroservice, LoggerService } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { Logger } from 'nestjs-pino';
+
 import { ExceptionFilter } from './_helpers';
+import { AppModule } from './app.module';
 
 (async function main() {
 	const app: INestMicroservice =

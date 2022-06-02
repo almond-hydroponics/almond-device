@@ -1,6 +1,6 @@
 // @formatter:off
 import * as withPagination from 'sequelize-cursor-pagination';
-import { Column, Model, Table, DataType } from 'sequelize-typescript';
+import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
 @Table({
 	modelName: 'device',
