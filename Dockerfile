@@ -1,24 +1,21 @@
 ## 1. BUILD STAGE
-FROM node:16.14.2-alpine as build
+FROM node:16.15.0-alpine as build
 # set labels
 LABEL maintainer="Francis Masha" MAINTAINER="Francis Masha <francismasha96@gmail.com>"
-LABEL application="almond-be"
+LABEL application="almond-device"
 # set variables
 ENV APP_HOME=/home/node/app
 RUN mkdir -p $APP_HOME && chown -R node:node $APP_HOME
 WORKDIR $APP_HOME
-
-RUN apk update \
-  && apk add --no-cache make g++ python postgresql-dev
 # Set non-root user and folder
 USER node
 # Copy source code (and all other relevant files)
 COPY --chown=node:node . ./
-RUN yarn install --frozen-lockfile \
+RUN yarn install --immutable \
   && yarn build
 
 ## 2. RUNTIME STAGE
-FROM node:16.14.2-alpine
+FROM node:16.15.0-alpine
 ENV APP_HOME=/home/node/app
 RUN mkdir -p $APP_HOME && chown -R node:node $APP_HOME
 RUN apk add --no-cache libpq
